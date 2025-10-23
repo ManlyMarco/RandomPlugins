@@ -23,7 +23,8 @@
 		<Delete Files="$(OutputPath)\$(MSBuildProjectName).deps.json" />
 	</Target>
 
-	<Target Name="SkipAllRefs" AfterTargets="ResolveReferences">
+	<!-- Do not copy any dependency dlls into plugin output directories since they are provided from other sources -->
+	<Target Name="SkipAllRefs" AfterTargets="ResolveReferences" Condition="'$(OutputType)' == 'Library'">
 		<ItemGroup>
 			<ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" />
 		</ItemGroup>
