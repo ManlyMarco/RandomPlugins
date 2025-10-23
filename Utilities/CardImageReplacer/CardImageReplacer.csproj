@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Version>1.0</Version>
+		<AssemblyTitle>Tool for replacing first PNG data stream in file without affecting other data</AssemblyTitle>
+		<Product>CardImageReplacer</Product>
+
+		<TargetFramework>net46</TargetFramework>
+		<OutputType>Exe</OutputType>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<Content Include="README.txt">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+</Project>

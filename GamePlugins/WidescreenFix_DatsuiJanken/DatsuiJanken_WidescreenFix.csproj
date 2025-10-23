@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Version>1.0</Version>
+		<AssemblyTitle>Fixes the game resolution and scaling being broken on ultrawide displays</AssemblyTitle>
+		<Product>Widescreen Fix for DatsuiJanken</Product>
+
+		<TargetFramework>net46</TargetFramework>
+		<OutputType>Library</OutputType>
+		<RootNamespace>WidescreenFix</RootNamespace>
+		<AssemblyName>WidescreenFix_DatsuiJanken</AssemblyName>
+	</PropertyGroup>
+	<ItemGroup>
+	  <None Include="WidescreenFix_DatsuiJanken.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="Assembly-CSharp">
+			<HintPath>lib\Assembly-CSharp.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="IllusionLibs.BepInEx" Version="5.4.22" />
+		<PackageReference Include="IllusionLibs.BepInEx.Harmony" Version="2.9.0" />
+		<PackageReference Include="IllusionLibs.EmotionCreators.UnityEngine.CoreModule" Version="2017.4.24.4" />
+		<PackageReference Include="IllusionLibs.EmotionCreators.UnityEngine.UI" Version="2017.4.24.4" />
+		<PackageReference Include="IllusionLibs.KoikatsuSunshine.UnityEngine.ParticleSystemModule" Version="2019.4.9" />
+	</ItemGroup>
+</Project>

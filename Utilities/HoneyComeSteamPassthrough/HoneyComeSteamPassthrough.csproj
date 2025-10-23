@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Version>1.0</Version>
+		<AssemblyTitle>Starts InitSetting.exe or HoneyCome.exe if the former is missing</AssemblyTitle>
+		<Product>HoneyCome Steam launcher</Product>
+
+		<TargetFramework>net35</TargetFramework>
+		<OutputType>WinExe</OutputType>
+		<AssemblyName>HoneyComeccp</AssemblyName>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+		<StartupObject>HoneyComeSteamPassthrough.Program</StartupObject>
+		<ApplicationIcon>icon.ico</ApplicationIcon>
+		<NoWin32Manifest>true</NoWin32Manifest>
+	</PropertyGroup>
+</Project>

@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGH_Tweaks", "GamePlugins\AGH_Tweaks\AGH_Tweaks.csproj", "{E7E6C73C-D9BD-40DF-9A26-D750FF951828}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTranslator.IL2CPP.BruteForceFix", "GamePlugins\AutoTranslatorIl2CppBruteforceFix\AutoTranslator.IL2CPP.BruteForceFix.csproj", "{49D183C3-07C0-6732-3E31-C2B9870FE11B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TousatsuTwo_PhotoVideo_SaveFix", "GamePlugins\TousatsuTwo_PhotoVideo_SaveFix\TousatsuTwo_PhotoVideo_SaveFix.csproj", "{A709D2BD-330B-4212-BFE5-9B906A9DF67A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "妹と過ごす1ヵ月間_TranslatedAdvTextFix", "GamePlugins\TranslatedAdvTextFixFor妹と過ごす1ヵ月間\妹と過ごす1ヵ月間_TranslatedAdvTextFix.csproj", "{25E15CC8-3D6B-492A-A0D3-2B20D4DED1F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatsuiJanken_WidescreenFix", "GamePlugins\WidescreenFix_DatsuiJanken\DatsuiJanken_WidescreenFix.csproj", "{20508427-9119-45E2-94E7-274C0A047446}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Universal Plugins", "Universal Plugins", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{39E1E75C-D11C-4CAD-A358-171A1367A345}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BepInDependencyChecker", "Utilities\BepInDependencyChecker\BepInDependencyChecker.csproj", "{A83C741A-9F8D-081B-3282-224F41D4128A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardImageReplacer", "Utilities\CardImageReplacer\CardImageReplacer.csproj", "{4AC4B714-2AE7-4D31-AD5F-2B6AE6E19B09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoneyComeSteamPassthrough", "Utilities\HoneyComeSteamPassthrough\HoneyComeSteamPassthrough.csproj", "{B81B629B-E1E0-437E-B0B7-E0D1A996A107}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution", "_Solution", "{77BE546F-3D08-4469-AA77-BA8DCAB2A662}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game-specific plugins", "Game-specific plugins", "{D2F1CCAF-776B-436C-87A0-12BBAAF3CEF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7E6C73C-D9BD-40DF-9A26-D750FF951828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7E6C73C-D9BD-40DF-9A26-D750FF951828}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7E6C73C-D9BD-40DF-9A26-D750FF951828}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7E6C73C-D9BD-40DF-9A26-D750FF951828}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49D183C3-07C0-6732-3E31-C2B9870FE11B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49D183C3-07C0-6732-3E31-C2B9870FE11B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49D183C3-07C0-6732-3E31-C2B9870FE11B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49D183C3-07C0-6732-3E31-C2B9870FE11B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A709D2BD-330B-4212-BFE5-9B906A9DF67A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A709D2BD-330B-4212-BFE5-9B906A9DF67A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A709D2BD-330B-4212-BFE5-9B906A9DF67A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A709D2BD-330B-4212-BFE5-9B906A9DF67A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25E15CC8-3D6B-492A-A0D3-2B20D4DED1F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25E15CC8-3D6B-492A-A0D3-2B20D4DED1F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25E15CC8-3D6B-492A-A0D3-2B20D4DED1F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25E15CC8-3D6B-492A-A0D3-2B20D4DED1F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20508427-9119-45E2-94E7-274C0A047446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20508427-9119-45E2-94E7-274C0A047446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20508427-9119-45E2-94E7-274C0A047446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20508427-9119-45E2-94E7-274C0A047446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A83C741A-9F8D-081B-3282-224F41D4128A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A83C741A-9F8D-081B-3282-224F41D4128A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A83C741A-9F8D-081B-3282-224F41D4128A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A83C741A-9F8D-081B-3282-224F41D4128A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC4B714-2AE7-4D31-AD5F-2B6AE6E19B09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC4B714-2AE7-4D31-AD5F-2B6AE6E19B09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC4B714-2AE7-4D31-AD5F-2B6AE6E19B09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC4B714-2AE7-4D31-AD5F-2B6AE6E19B09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B81B629B-E1E0-437E-B0B7-E0D1A996A107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B81B629B-E1E0-437E-B0B7-E0D1A996A107}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B81B629B-E1E0-437E-B0B7-E0D1A996A107}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B81B629B-E1E0-437E-B0B7-E0D1A996A107}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E7E6C73C-D9BD-40DF-9A26-D750FF951828} = {D2F1CCAF-776B-436C-87A0-12BBAAF3CEF5}
+		{49D183C3-07C0-6732-3E31-C2B9870FE11B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{A709D2BD-330B-4212-BFE5-9B906A9DF67A} = {D2F1CCAF-776B-436C-87A0-12BBAAF3CEF5}
+		{25E15CC8-3D6B-492A-A0D3-2B20D4DED1F8} = {D2F1CCAF-776B-436C-87A0-12BBAAF3CEF5}
+		{20508427-9119-45E2-94E7-274C0A047446} = {D2F1CCAF-776B-436C-87A0-12BBAAF3CEF5}
+		{A83C741A-9F8D-081B-3282-224F41D4128A} = {39E1E75C-D11C-4CAD-A358-171A1367A345}
+		{4AC4B714-2AE7-4D31-AD5F-2B6AE6E19B09} = {39E1E75C-D11C-4CAD-A358-171A1367A345}
+		{B81B629B-E1E0-437E-B0B7-E0D1A996A107} = {39E1E75C-D11C-4CAD-A358-171A1367A345}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D09B1A4F-4CFD-4134-82B0-1CE5DAE9EE88}
+	EndGlobalSection
+EndGlobal

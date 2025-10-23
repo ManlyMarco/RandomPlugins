@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Version>1.0</Version>
+		<AssemblyTitle>Cheats, Translation settings, and other tweaks</AssemblyTitle>
+		<Product>AGH Tweaks</Product>
+
+		<TargetFramework>net35</TargetFramework>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="Assembly-CSharp">
+			<HintPath>lib\Assembly-CSharp.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="BepInEx.ConfigurationManager" Version="18.3.0" />
+		<PackageReference Include="IllusionLibs.BepInEx" Version="5.4.22" />
+		<PackageReference Include="IllusionLibs.BepInEx.Harmony" Version="2.9.0" />
+		<PackageReference Include="IllusionLibs.HoneySelect.UnityEngine" Version="5.3.5.2" />
+		<PackageReference Include="IllusionLibs.HoneySelect.UnityEngine.UI" Version="5.3.5.2" />
+	</ItemGroup>
+</Project>

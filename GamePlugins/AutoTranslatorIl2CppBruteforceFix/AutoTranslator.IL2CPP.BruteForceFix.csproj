@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Version>1.0</Version>
+		<AssemblyTitle>Force AutoTranslator to try to translate all Text controls continously to work around failing to notice text changes in IL2CPP games</AssemblyTitle>
+		<Product>AutoTranslator.IL2CPP.BruteForceFix</Product>
+
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.738" />
+		<PackageReference Include="IllusionLibs.Aicomi.Il2CppSystem" Version="2024.10.3" />
+		<PackageReference Include="IllusionLibs.Aicomi.Unity" Version="2024.10.3" />
+		<PackageReference Include="IllusionLibs.Aicomi.UnityEngine" Version="2022.3.55.1" />
+		<PackageReference Include="IllusionLibs.XUnity.AutoTranslator.Plugin.Core.IL2CPP" Version="5.4.0" />
+	</ItemGroup>
+</Project>
