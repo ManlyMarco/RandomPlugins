@@ -10,9 +10,20 @@ namespace JapaneseStringExtractor
     {
         private static void Main(string[] args)
         {
+            for (int i = 0; i < args.Length; i++)
+            {
+                var path = args[i];
+                if (File.Exists(path) || Directory.Exists(path))
+                    continue;
+
+                Console.Error.WriteLine($"Error: Path not found: {path}");
+                args = args.Where(x => !string.Equals(x, path, StringComparison.OrdinalIgnoreCase)).ToArray();
+                i = -1;
+            }
+
             if (args.Length != 0)
             {
-                var dumpDirectory = Path.Combine(Environment.CurrentDirectory, "StringDump");
+                var dumpDirectory = Path.Combine(Path.GetDirectoryName(Path.GetFullPath(args[0])) ?? "", "_StringDump");
                 Directory.CreateDirectory(dumpDirectory);
 
                 int total = args.Length;
