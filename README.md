@@ -9,19 +9,22 @@ Use the latest version of BepInEx 5 for games that use Mono, and BepInEx 6 for I
 The plugins are made for the latest version of their respective games (at that time) unless stated otherwise. Compatibility with future game updates is likely but not guaranteed.
 
 ### Universal Plugins
-- **AutoTranslator.IL2CPP.BruteForceFix**: Fixes issues with XUnity AutoTranslator failing to automatically translate some text components in IL2CPP Unity games (when the translation works after pressing Alt+T twice). It forces all text components to be periodically re-checked for text to be translated, ensuring they are translated right away. Has a small performance penalty.
+- **AutoTranslator.IL2CPP.BruteForceFix**: Fixes issues with XUnity AutoTranslator failing to automatically translate some text components in IL2CPP Unity games (when the translation works after pressing Alt+T twice). It forces all text components to be periodically re-checked for text to be translated, ensuring they are translated right away. Has a small performance penalty. Requires XUnity AutoTranslator.
 
 ### Game-specific Plugins
-- **AGH_Tweaks**: Adds translation and debug tweaks for the game "Houkago Rinkan Chuudoku" shortened to AGH. This plugin requires the English translation + uncensor mod (the custom Assembly-CSharp.dll file) to be installed. It adds some improvements to the English translation while also allowing selectively disabling English translation and H scene subtitles. It also has an option to add a debug mode button to title screen.
-- **WidescreenFix_DatsuiJanken**: Adds support for widescreen and custom resolutions in "Datsui Janken (RJ435105)", fixing UI scaling and resolution selection issues on ultrawide displays.
-- **TousatsuTwo_PhotoVideo_SaveFix**: Fixes extreme save/load inefficiency for photo and video data in "Tousatsu Two (RJ01100703)".
-- **妹と過ごす1ヵ月間_TranslatedAdvTextFix**: Fixes translated ADV text being cut off in "妹と過ごす1ヵ月間" (Imouto to Sugosu 1-Kagetsukan, posted on ci-en) by periodically forcing full text reveal.
+- **AGH_Tweaks**: Adds translation and debug tweaks for "Houkago Rinkan Chuudoku" (AGH). Requires the English translation + uncensor mod (custom Assembly-CSharp.dll). Features include small improvements to English translation, options to disable translation/subtitles individually, and a debug mode button on the title screen. Requires the modded Assembly-CSharp.dll with English translations.
+- **WidescreenFix_DatsuiJanken**: Enables widescreen and custom resolutions in "Datsui Janken (RJ435105)", fixing UI scaling and resolution selection for ultrawide displays.
+- **TousatsuTwo_PhotoVideo_SaveFix**: Optimizes save/load performance for photo and video data in "Tousatsu Two (RJ01100703)" by fixing inefficient serialization. !No longer required in the latest version of the game!
+- **妹と過ごす1ヵ月間_TranslatedAdvTextFix**: Fixes translated ADV text being cut off in "妹と過ごす1ヵ月間" (Imouto to Sugosu 1-Kagetsukan) by periodically forcing a full text reveal.
 
 ## Utilities
-These are simple command-line tools that can be run from anywhere (unless specified otherwise). Check their source code for usage instructions.
+These are simple command-line tools that can be run from anywhere (unless specified otherwise). Check their source code for usage instructions. All utilities require .NET Framework 4.6 or later.
 
-- **BepInDependencyChecker**: Command-line tool to analyze BepInEx plugin assemblies for missing, unnecessary, or mismatched BepInDependency attributes. The purpose is to catch potential unpredictable dependency issues where a plugin assembly is force-loaded before BepInEx gets to loading it, causing undefined behaviour (the wrong version of the plugin to be loaded or the loading process may fail). Best to use on a full `BepInEx\plugins` folder to get an accurate report.
-- **CardImageReplacer**: Tool for replacing first PNG data stream in file without affecting other data.
-- **HoneyComeSteamPassthrough**: Starts InitSetting.exe or HoneyCome.exe if the former is missing. Necessary for Steam to be able to start the game after it is converted to the global version.
-- **JapaneseStringExtractor**: Utility for extracting Japanese strings from files or directories. Outputs all detected Japanese text to a dump file for further analysis or translation. For example can be used on the `_Data` folder of Unity3D games to extract and translate a large part of game text to use as initial translations for AutoTranslator.
-- **TranslationFileMergeUtility**: Utility for merging original and translated text files into a translation file, or splitting a translation file into original and translated components. Usage: `TranslationFileMergeUtility.exe <file1.txt> <file2.txt>` to merge, or `TranslationFileMergeUtility.exe <file.txt>` to split.
+### AutoTranslator-related Utilities
+- **JapaneseStringExtractor**: Extracts Japanese strings from files or directories, outputting detected text to a dump file for translation or analysis. Usage: `JapaneseStringExtractor.exe <file_or_directory_path> [more_paths...]`. Outputs results to a `StringDump` folder.
+- **TranslationFileMergeUtility**: Merges original and translated text files into a translation file, or splits a translation file into original and translated components. Usage: `TranslationFileMergeUtility.exe <file1.txt> <file2.txt>` to merge, or `TranslationFileMergeUtility.exe <file.txt>` to split.
+
+### Other Utilities
+- **BepInDependencyChecker**: Analyzes BepInEx plugin assemblies for missing, unnecessary, or mismatched BepInDependency attributes. Helps detect dependency issues that may cause plugins to load incorrectly. Usage: `BepInDependencyChecker.exe <dll_or_directory> [-u] [-m]` where `-u` shows unnecessary dependencies and `-m` shows matching dependencies.
+- **CardImageReplacer**: Replaces the first PNG image data stream in a file (such as a character card) with a new image, preserving other data. Usage: `CardImageReplacer.exe <card.png> <replacement.png> <output.png>`. If arguments are omitted, a GUI will prompt for files.
+- **HoneyComeSteamPassthrough**: Allows Steam to launch "HoneyCome Come Come Party" after conversion to the global version ("HoneyCome") by starting `InitSetting.exe` (or `HoneyCome.exe` if the former is missing). Place in the game root folder.
