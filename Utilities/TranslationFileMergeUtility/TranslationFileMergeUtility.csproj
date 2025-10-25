@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Version>1.0</Version>
+		<AssemblyTitle>Utility for merging translation files for AutoTranslator</AssemblyTitle>
+		<Product>TranslationFileMergeUtility</Product>
+
+		<TargetFramework>net46</TargetFramework>
+		<OutputType>Exe</OutputType>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="System.ValueTuple" Version="4.5.0" />
+	</ItemGroup>
+</Project>
