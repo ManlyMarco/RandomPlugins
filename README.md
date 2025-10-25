@@ -1,5 +1,5 @@
-﻿# RandomPlugins
-A collection of BepInEx plugins and utilities that didn't deserve to be put into a separate repository.
+﻿# Random Plugins and Utilities
+A collection of BepInEx plugins and various utilities that didn't deserve to be put into a separate repository.
 
 ## Plugins
 Each of the plugins should be placed in the `BepInEx\plugins` folder of the target game. Some plugins may have additional installation instructions in their respective folders.
