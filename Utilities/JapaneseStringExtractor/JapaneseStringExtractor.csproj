@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Version>1.0</Version>
+		<AssemblyTitle>Utility for extracting Japanese strings from files</AssemblyTitle>
+		<Product>JapaneseStringExtractor</Product>
+
+		<TargetFramework>net46</TargetFramework>
+		<OutputType>Exe</OutputType>
+	</PropertyGroup>
+</Project>
