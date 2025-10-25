@@ -10,57 +10,61 @@ namespace JapaneseStringExtractor
     {
         private static void Main(string[] args)
         {
-            if (args.Length == 0)
+            if (args.Length != 0)
+            {
+                var dumpDirectory = Path.Combine(Environment.CurrentDirectory, "StringDump");
+                Directory.CreateDirectory(dumpDirectory);
+
+                int total = args.Length;
+                for (int i = 0; i < total; i++)
+                {
+                    var path = args[i];
+                    Console.WriteLine($"[{i + 1}/{total}] Processing: {path}");
+                    if (File.Exists(path))
+                    {
+                        var fileInfo = new FileInfo(path);
+                        var strings = ExtractFromFiles(new[] { fileInfo });
+                        var outPath = Path.Combine(dumpDirectory, fileInfo.Name + "_dump.txt");
+                        Console.WriteLine($"L Writing {strings.Length} strings to {outPath}");
+                        Console.WriteLine();
+                        File.WriteAllLines(outPath, strings);
+                    }
+                    else if (Directory.Exists(path))
+                    {
+                        var dirInfo = new DirectoryInfo(path);
+                        {
+                            var strings = ExtractFromDirectory(dirInfo);
+                            var outPath = Path.Combine(dumpDirectory, dirInfo.Name + "_files_dump.txt");
+                            Console.WriteLine($"L Writing {strings.Length} strings to {outPath}");
+                            Console.WriteLine();
+                            File.WriteAllLines(outPath, strings);
+                        }
+
+                        var dirs = dirInfo.GetDirectories().OrderBy(x => x.Name).ToArray();
+                        for (var i2 = 0; i2 < dirs.Length; i2++)
+                        {
+                            var subDir = dirs[i2];
+                            Console.WriteLine($"[{i + 1}/{total} | {i2 + 1}/{dirs.Length}] Processing subdirectory: {subDir.Name}");
+                            var strings = ExtractFromFiles(subDir.GetFiles("*.*", SearchOption.AllDirectories));
+                            var outPath = Path.Combine(dumpDirectory, $"{dirInfo.Name}_{subDir.Name}_dump.txt");
+                            Console.WriteLine($"L Writing {strings.Length} strings to {outPath}");
+                            Console.WriteLine();
+                            File.WriteAllLines(outPath, strings);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Path not found: {path}");
+                    }
+                }
+            }
+            else
             {
                 Console.Error.WriteLine("Error: No file or directory paths provided.\nUsage: JapaneseStringExtractor.exe <file_or_directory_path> [more_paths...]");
-                return;
             }
 
-            var dumpDirectory = Path.Combine(Environment.CurrentDirectory, "StringDump");
-            Directory.CreateDirectory(dumpDirectory);
-
-            int total = args.Length;
-            for (int i = 0; i < total; i++)
-            {
-                var path = args[i];
-                Console.WriteLine($"[{i + 1}/{total}] Processing: {path}");
-                if (File.Exists(path))
-                {
-                    var fileInfo = new FileInfo(path);
-                    var strings = ExtractFromFiles(new[] { fileInfo });
-                    var outPath = Path.Combine(dumpDirectory, fileInfo.Name + "_dump.txt");
-                    Console.WriteLine($"L Writing {strings.Length} strings to {outPath}");
-                    Console.WriteLine();
-                    File.WriteAllLines(outPath, strings);
-                }
-                else if (Directory.Exists(path))
-                {
-                    var dirInfo = new DirectoryInfo(path);
-                    {
-                        var strings = ExtractFromDirectory(dirInfo);
-                        var outPath = Path.Combine(dumpDirectory, dirInfo.Name + "_files_dump.txt");
-                        Console.WriteLine($"L Writing {strings.Length} strings to {outPath}");
-                        Console.WriteLine();
-                        File.WriteAllLines(outPath, strings);
-                    }
-
-                    var dirs = dirInfo.GetDirectories().OrderBy(x => x.Name).ToArray();
-                    for (var i2 = 0; i2 < dirs.Length; i2++)
-                    {
-                        var subDir = dirs[i2];
-                        Console.WriteLine($"[{i + 1}/{total} | {i2 + 1}/{dirs.Length}] Processing subdirectory: {subDir.Name}");
-                        var strings = ExtractFromFiles(subDir.GetFiles("*.*", SearchOption.AllDirectories));
-                        var outPath = Path.Combine(dumpDirectory, $"{dirInfo.Name}_{subDir.Name}_dump.txt");
-                        Console.WriteLine($"L Writing {strings.Length} strings to {outPath}");
-                        Console.WriteLine();
-                        File.WriteAllLines(outPath, strings);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"Path not found: {path}");
-                }
-            }
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
 
         private static string[] ExtractFromDirectory(DirectoryInfo directory)
