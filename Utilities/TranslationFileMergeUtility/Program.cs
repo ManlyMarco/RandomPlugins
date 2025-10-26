@@ -119,7 +119,17 @@ namespace TranslationFileMergeUtility
 
         private static string Escape(string s)
         {
-            return s.Replace(@"\", @"\\").Replace("=", @"\=");
+            const string tempNewlinePlaceholder = "___NEWLINE_PLACEHOLDER___";
+            
+            s = s.Replace("\n", tempNewlinePlaceholder);
+            
+            s = s.Replace(@"\", @"\\");
+            
+            s = s.Replace("=", @"\=");
+            
+            s = s.Replace(tempNewlinePlaceholder, "\n");
+
+            return s;
         }
         private static string Unescape(string s)
         {
