@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Version>0.1</Version>
+		<AssemblyTitle>Fix for translated ADV text being cut off in 双子と姪くらぶ</AssemblyTitle>
+		<Product>Translated ADV Text Fix</Product>
+
+		<TargetFramework>net46</TargetFramework>
+		<OutputType>Library</OutputType>
+		<RootNamespace>TranslatedAdvTextFix</RootNamespace>
+		<AssemblyName>TranslatedAdvTextFix</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="IllusionLibs.BepInEx" Version="5.4.22" />
+		<PackageReference Include="IllusionLibs.XUnity.AutoTranslator.Plugin.Core" Version="4.18.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="E:\H\hgames\_todo\RJ01519705\双子と姪くらぶ\SummerwithTwins_Data\Managed\*.dll">
+	    <Private>False</Private>
+	  </Reference>
+	</ItemGroup>
+</Project>
