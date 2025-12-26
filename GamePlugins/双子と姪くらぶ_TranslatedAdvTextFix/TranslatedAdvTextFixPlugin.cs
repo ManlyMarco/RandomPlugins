@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Reflection;
 using BepInEx;
 using HarmonyLib;
 using UnityEngine;
@@ -20,6 +23,8 @@ namespace TranslatedAdvTextFix
             Harmony.CreateAndPatchAll(typeof(TranslatedAdvTextFixPlugin));
 
         }
+
+        private static HashSet<string> _seen = new HashSet<string>();
 
         //patch private static TextParserBase CreateTextParser(string text)
         [HarmonyPrefix]
@@ -43,9 +48,9 @@ namespace TranslatedAdvTextFix
 
         [HarmonyPostfix]
         [HarmonyPatch(typeof(Utage.TextData), "CreateTextParser")]
-        private static void CreateTextParser_Postfix(ref string text, TextParserBase __result, bool __state)
+        private static void CreateTextParser_Postfix(string text, TextParserBase __result, bool __state)
         {
-            if (__state) return;
+            if (__state || _seen.Contains(text)) return;
 
             // If the text was not instantly translated, do it asynchronously and manually set the result and update the UI
             AutoTranslator.Default.TranslateAsync(text, result =>
@@ -67,18 +72,34 @@ namespace TranslatedAdvTextFix
 
                     ThreadingHelper.Instance.StartSyncInvoke(() =>
                     {
-                        var advPage = FindObjectOfType<AdvPage>();
+                        try
+                        {
+                            var advPage = FindObjectOfType<AdvPage>();
 
-                        var advPageType = advPage.GetType();
-                        var currentTextLengthMaxField = advPageType.GetProperty(nameof(AdvPage.CurrentTextLengthMax), System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-                        currentTextLengthMaxField.SetValue(advPage, result.TranslatedText.Length, null);
+                            var advPageType = advPage.GetType();
+                            var currentTextLengthMaxField = advPageType.GetProperty(nameof(AdvPage.CurrentTextLengthMax),
+                                                                                    BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                            currentTextLengthMaxField.SetValue(advPage, result.TranslatedText.Length, null);
 
-                        advPage.RemakeText();
+                            advPage.RemakeText();
+
+                            _seen.Add(text);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.LogError("[TranslatedAdvTextFix] Exception in StartSyncInvoke callback: " + ex);
+                        }
+                        finally
+                        {
+                        }
                     });
                 }
                 catch (System.Exception ex)
                 {
                     Debug.LogError("[TranslatedAdvTextFix] Exception in TranslateAsync callback: " + ex);
+                }
+                finally
+                {
                 }
             });
         }

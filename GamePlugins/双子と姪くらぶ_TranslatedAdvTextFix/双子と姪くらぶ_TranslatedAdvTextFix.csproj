@@ -16,7 +16,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Reference Include="E:\H\hgames\_todo\RJ01519705\双子と姪くらぶ\SummerwithTwins_Data\Managed\*.dll">
+	  <Reference Include="E:\RJ01519705\双子と姪くらぶ\SummerwithTwins_Data\Managed\*.dll">
 	    <Private>False</Private>
 	  </Reference>
 	</ItemGroup>
