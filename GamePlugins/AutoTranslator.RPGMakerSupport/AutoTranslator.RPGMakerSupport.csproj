@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Version>1.0</Version>
+		<AssemblyTitle>Adds better support for games with RPGMaker.CodeBase.CoreSystem.dll to AutoTranslator</AssemblyTitle>
+		<Product>AutoTranslator.RPGMakerSupport</Product>
+
+		<TargetFramework>net46</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="IllusionLibs.BepInEx" Version="5.4.22" />
+		<PackageReference Include="IllusionLibs.KoikatsuSunshine.UnityEngine.CoreModule" Version="2019.4.9" />
+		<PackageReference Include="IllusionLibs.XUnity.AutoTranslator.Plugin.Core" Version="4.18.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="netstandard">
+	    <HintPath>E:\H\hgames\_todo\RJ01648511 visiting mesugaki\toilet_1_1\トイレかして_Data\Managed\netstandard.dll</HintPath>
+	    <Private>False</Private>
+	  </Reference>
+	  <Reference Include="RPGMaker.CodeBase.CoreSystem">
+	    <HintPath>lib\RPGMaker.CodeBase.CoreSystem.dll</HintPath>
+	    <Private>False</Private>
+	  </Reference>
+	</ItemGroup>
+</Project>

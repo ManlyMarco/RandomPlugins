@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslationFileMergeUtility
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "双子と姪くらぶ_TranslatedAdvTextFix", "GamePlugins\双子と姪くらぶ_TranslatedAdvTextFix\双子と姪くらぶ_TranslatedAdvTextFix.csproj", "{9BF86DCE-719A-4A65-ADA1-CFEADD06F45B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTranslator.RPGMakerSupport", "GamePlugins\AutoTranslator.RPGMakerSupport\AutoTranslator.RPGMakerSupport.csproj", "{90F85AFC-AE81-42EF-98F1-C39625966785}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{9BF86DCE-719A-4A65-ADA1-CFEADD06F45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BF86DCE-719A-4A65-ADA1-CFEADD06F45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BF86DCE-719A-4A65-ADA1-CFEADD06F45B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90F85AFC-AE81-42EF-98F1-C39625966785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90F85AFC-AE81-42EF-98F1-C39625966785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90F85AFC-AE81-42EF-98F1-C39625966785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90F85AFC-AE81-42EF-98F1-C39625966785}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +109,7 @@ Global
 		{96135AC8-F8F4-62BA-90E9-E10D75322B79} = {39E1E75C-D11C-4CAD-A358-171A1367A345}
 		{9FD5E26C-3668-FB02-7562-84D5C936604E} = {39E1E75C-D11C-4CAD-A358-171A1367A345}
 		{9BF86DCE-719A-4A65-ADA1-CFEADD06F45B} = {D2F1CCAF-776B-436C-87A0-12BBAAF3CEF5}
+		{90F85AFC-AE81-42EF-98F1-C39625966785} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D09B1A4F-4CFD-4134-82B0-1CE5DAE9EE88}
