@@ -415,7 +415,11 @@ namespace JapaneseStringExtractor
                         var str = currentString.ToString().Trim();
                         if (str.Length >= 2)
                         {
-                            strings.Add(str);
+                            var cleanedStr = RemoveUnpairedSurrogates(str);
+                            if (cleanedStr.Length >= 2)
+                            {
+                                strings.Add(cleanedStr);
+                            }
                         }
                         currentString.Clear();
                     }
@@ -427,7 +431,11 @@ namespace JapaneseStringExtractor
                         var str = currentString.ToString().Trim();
                         if (str.Length >= 2)
                         {
-                            strings.Add(str);
+                            var cleanedStr = RemoveUnpairedSurrogates(str);
+                            if (cleanedStr.Length >= 2)
+                            {
+                                strings.Add(cleanedStr);
+                            }
                         }
                         currentString.Clear();
                     }
@@ -438,6 +446,31 @@ namespace JapaneseStringExtractor
                           .Select(x => x.Trim())
                           .Distinct()
                           .ToArray();
+        }
+
+        private static string RemoveUnpairedSurrogates(string str)
+        {
+            var result = new StringBuilder();
+            for (int i = 0; i < str.Length; i++)
+            {
+                char c = str[i];
+                if (char.IsSurrogate(c))
+                {
+                    if (char.IsHighSurrogate(c) && i + 1 < str.Length && char.IsLowSurrogate(str[i + 1]))
+                    {
+                        // Valid surrogate pair, keep both characters
+                        result.Append(c);
+                        result.Append(str[i + 1]);
+                        i++; // Skip the low surrogate in the next iteration
+                    }
+                    // Skip unpaired surrogates
+                }
+                else
+                {
+                    result.Append(c);
+                }
+            }
+            return result.ToString();
         }
 
         private static bool IsJapaneseChar(char c)
